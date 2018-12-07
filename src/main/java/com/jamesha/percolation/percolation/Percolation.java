@@ -7,6 +7,7 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 public class Percolation {
    
 	int [][] grid;
+	int numberOfOpenSites;
 	
 	// create n-by-n grid, with all sites blocked
 	public Percolation(int n) {
@@ -15,16 +16,15 @@ public class Percolation {
    
 	// open site (row, col) if it is not open already
 	public void open (int row, int col) {
-	   grid[row][col] = 1;
+		if (grid[row][col] == 0) {
+			grid[row][col] = 1;
+			numberOfOpenSites++;
+		}
 	}
    
 	// is site (row, col) open?
 	public boolean isOpen(int row, int col) {
-		if (grid[row][col] == 1) {
-			return true;
-		}
-		
-		return false;
+		return grid[row][col] == 1;
 	}
    
 	// is site (row, col) full?
@@ -34,7 +34,7 @@ public class Percolation {
    
 	// number of open sites
 	public int numberOfOpenSites() {
-		return 0;
+		return numberOfOpenSites;
 	}
    
 	// number of open sites
