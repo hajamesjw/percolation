@@ -46,11 +46,11 @@ public class Percolation {
 		}
 		
 		if (col > 1 && isOpen(row, col - 1)) {
-			wqu.union((row - 1) * gridSize + col, (row - 2) * gridSize + col - 1);
+			wqu.union((row - 1) * gridSize + col, (row - 1) * gridSize + col - 1);
 		}
 		
 		if (col < gridSize && isOpen(row, col + 1)) {
-			wqu.union((row - 1) * gridSize + col, (row) * gridSize + col + 1);
+			wqu.union((row - 1) * gridSize + col, (row - 1) * gridSize + col + 1);
 		}
 		
 	}
